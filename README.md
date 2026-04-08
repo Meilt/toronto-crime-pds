@@ -6,7 +6,9 @@ This project implements an end-to-end R pipeline for:
 - Data cleaning and feature engineering
 - EDA and visualizations
 - Classification and clustering models
-- Power BI-ready exports
+- Power BI integration via a **Python Web API** (no manual CSV import in Desktop)
+- Docker reproducibility
+
 - Docker reproducibility
 
 ## 1) Prerequisites
@@ -15,6 +17,7 @@ This project implements an end-to-end R pipeline for:
 - Git installed
 - Docker Desktop installed
 - Power BI Desktop installed
+- **Python 3** and `pip` (for the Power BI logic layer)
 
 ## 2) Project Setup (Windows)
 
@@ -71,18 +74,18 @@ Rscript scripts/06_export_powerbi.R
 - Power BI export tables:
   - `outputs/powerbi/*.csv`
 
-## 6) Power BI (Beginner)
+## 6) Power BI via Web API (logic layer)
 
-1. Open Power BI Desktop.
-2. Get Data -> Text/CSV.
-3. Load:
-   - `outputs/powerbi/powerbi_features.csv`
-   - `outputs/powerbi/powerbi_monthly_trends.csv`
-   - `outputs/powerbi/powerbi_hotspots.csv`
-4. Create slicers for `year`, `crime_type`, and `cluster`.
-5. Add 2 R visuals:
-   - Monthly trend chart
-   - Cluster hotspot scatter chart
+Power BI Desktop connects to a **local HTTP API** that reads the CSV files produced by `06_export_powerbi.R`. You do **not** use Get Data → Text/CSV for the main workflow (avoids manual file upload each time). After you refresh data in R, start the API and click **Refresh** in Power BI.
+
+### 6.1 Install Python packages (one time)
+
+In PowerShell (from the project folder):
+
+```powershell
+pip install fastapi uvicorn pandas
+
+
 
 ## 7) Docker Run
 
