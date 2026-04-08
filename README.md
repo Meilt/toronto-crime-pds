@@ -114,8 +114,12 @@ Keep this terminal open while working in Power BI Desktop.
 
 ### 6.5 Connect Power BI Desktop (no login)
 
-Open Power BI Desktop. If sign-in appears, choose Skip / work offline.
-Home → Get data → Web.
+1. Open Power BI Desktop. 
+
+2. If sign-in appears, choose Skip / work offline.
+
+3. Home → Get data → Web.
+
 Add each data source (repeat for each table):
 Table in Power BI	Local URL	Ngrok URL (example)
 features	http://127.0.0.1:8000/features	https://YOUR-NGROK-URL/features
@@ -123,11 +127,11 @@ monthly	http://127.0.0.1:8000/monthly	https://YOUR-NGROK-URL/monthly
 hotspots	http://127.0.0.1:8000/hotspots	https://YOUR-NGROK-URL/hotspots
 cluster_points	http://127.0.0.1:8000/cluster_points	https://YOUR-NGROK-URL/cluster_points
 
-Power Query may show a List or single Record. Convert to a table:
-Transform → To Table (if needed)
-Expand columns so you see fields like year, month, crime_type, crime_count, cluster, longitude, latitude, etc.
-Set column types (Transform → Detect Data Type or set Decimal for lat/lon, Whole number for counts where appropriate).
-Close & Apply.
+4. Power Query may show a List or single Record. Convert to a table:
+- Transform → To Table (if needed)
+- Expand columns so you see fields like year, month, crime_type, crime_count, cluster, longitude, latitude, etc.
+5. Set column types (Transform → Detect Data Type or set Decimal for lat/lon, Whole number for counts where appropriate).
+5. Close & Apply.
 Refresh: Home → Refresh (re-runs R + restart API if files changed).
 
 
@@ -140,7 +144,7 @@ docker compose build
 docker compose up
 ```
 
-## 8) GitHub (Minimum Requirement)
+## 8) GitHub
 
 ```powershell
 git init
