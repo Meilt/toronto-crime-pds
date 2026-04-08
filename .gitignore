@@ -1,0 +1,10 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.env
+data/processed/
+outputs/
+!outputs/.gitkeep
+data/raw/*.csv
+

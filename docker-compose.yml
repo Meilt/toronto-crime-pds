@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  pds_pipeline:
+    build: .
+    container_name: pds_pipeline
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: >
+      bash -c "Rscript scripts/01_acquire.R &&
+               Rscript scripts/02_preprocess.R &&
+               Rscript scripts/03_eda.R &&
+               Rscript scripts/04_model_classification.R &&
+               Rscript scripts/05_model_clustering.R &&
+               Rscript scripts/06_export_powerbi.R"
