@@ -143,24 +143,3 @@ In PowerShell:
 docker compose build
 docker compose up
 ```
-
-## 8) GitHub
-
-```powershell
-git init
-git checkout -b main
-git checkout -b development
-git add .
-git commit -m "Initial project structure and pipeline scripts"
-```
-
-Create GitHub repository in browser, then:
-
-```powershell
-git remote add origin <your_repo_url>
-git push -u origin main
-git checkout development
-git push -u origin development
-```
-
-Make at least 10 meaningful commits while improving each stage.
